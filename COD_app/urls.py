@@ -16,11 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-
-INSTALLED_APPS = [
-    'drf_yasg',  # swagger
-]
-urlpatterns = [
+[
     path('admin/', admin.site.urls),
     path('', include('backend.urls')),
 ]
