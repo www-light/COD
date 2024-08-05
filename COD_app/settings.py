@@ -43,16 +43,6 @@ INSTALLED_APPS = [
     'drf_yasg', 
     "corsheaders",
 ]
-# REST_FRAMEWORK增加全局过滤配置  
-REST_FRAMEWORK = {  
-    'DEFAULT_FILTER_BACKENDS': [  
-        'django_filters.rest_framework.DjangoFilterBackend',
-        'rest_framework.filters.SearchFilter',   
-    ],
- # 设置分页  
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',  
-    'PAGE_SIZE': 5,
-}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -145,3 +135,13 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+REST_FRAMEWORK = {  
+    'DEFAULT_FILTER_BACKENDS': [  
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',   
+    ],
+ # 设置分页  
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',  
+    'PAGE_SIZE': 5,
+}
