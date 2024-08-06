@@ -16,7 +16,7 @@ git https://github.com/www-light/COD.git
 # 切换目录
 cd COD
 # 安装依赖
-pip install -r ./requirements.txt
+pip3 install -r ./requirements.txt
 # 更新数据库
 python manage.py migrate
 # 运行后端（dev or Production）
