@@ -172,7 +172,7 @@ def get_loader(image_root, gt_root, batchsize, trainsize,
 class test_dataset:
     def __init__(self, image_root, testsize):
         self.testsize = testsize
-        self.images = [image_root + f for f in os.listdir(image_root) if f.endswith('.jpg') or f.endswith('.png')]
+        self.images = [image_root + f for f in os.listdir(image_root) if f.endswith('.jpg') or f.endswith('.png') or f.endswith('.jpeg')]
         self.images = sorted(self.images)
         self.transform = transforms.Compose([
             transforms.Resize((self.testsize, self.testsize)),

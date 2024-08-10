@@ -1,3 +1,5 @@
+import locale
+print("123",locale.getpreferredencoding())  # 检查默认编码
 import os
 import torch
 import torch.nn.functional as F
@@ -35,7 +37,7 @@ def SINet():
     for i in range(test_loader.size):
         image, name, _ = test_loader.load_data()
         image = image.cuda()
-
+        print("name:",name)
         # Forward pass through the model to get the output
         res5, res4, res3, res2 = model(image)
         res = res2
@@ -48,4 +50,6 @@ def SINet():
         print('> {} - {}'.format(_data_name, name))
 
         # Save the result using cv2
-        cv2.imwrite(save_path + name, res * 255)
+        # 假设读取到的文件名是乱码
+        cv2.imencode('.jpg', res*255)[1].tofile(save_path + name)
+        #cv2.imwrite(save_path + name, res * 255)

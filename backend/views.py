@@ -35,6 +35,7 @@ class upload_images(APIView):
         os.makedirs(UPLOAD_FOLDER, exist_ok=True)
         #返回结果
         Extract_image_path=os.path.join(RESULT_FOLDER,filename)
+        print("path:",Extract_image_path)
         if not os.path.isfile(Extract_image_path):
             return JsonResponse({'error': 'Image not found'}, status=404)
         
