@@ -6,7 +6,7 @@
     </div>
 
     <div id="nav-div">
-      <nav style="border: 1px solid white;">
+      <nav>
         <router-link to='/'>Home</router-link>&nbsp;&nbsp;|&nbsp;&nbsp; 
         <router-link to="/about">About</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;  
         <router-link to="/detect">Detect</router-link>
@@ -28,7 +28,6 @@
 
 #nav-div{
     height: 100px;
-    border: 1px solid white;  /* 颜色调至black用于查看盒子位置 */
      background-color: #f7f6f4; 
     text-align: start;
     display: flex ; 
@@ -38,12 +37,8 @@
 #img-div{
   padding-left: 25%;
   width: 17%;
-  border: 1px solid white;  /* 颜色调至black用于查看盒子位置 */
 }
 
-#nav-div{
-  border: 1px solid white;  /* 颜色调至black用于查看盒子位置 */
-}
 
 nav {
   padding: 0px;
