@@ -3,7 +3,7 @@
 
   <Header/>
 
-  <div style="height:1000px; border: 1px solid white">
+  <div style=" border: 1px solid white">
     <!-- 路由出口 -->
     <router-view/>
   </div>
