@@ -23,7 +23,8 @@
   
   #all{
     position: sticky; 
-    top:0px; 
+    top:0px;
+    z-index: 100; 
   }
   
   #nav-div{
