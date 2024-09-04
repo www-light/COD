@@ -461,8 +461,8 @@ export default {
   position: fixed; 
   top: 135px; 
   left: 20px;
-  /* height:570px; */
-  height: 496.4px;  /*减去footer*/ 
+  height:570px;
+  /* height: 496.4px;  */
   transition: top 0.3s ease;
   
 }  

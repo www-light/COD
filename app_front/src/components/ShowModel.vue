@@ -41,7 +41,8 @@
   background-color: rgba(0, 0, 0, 0.5);  
   display: flex;  
   justify-content: center;  
-  align-items: center;  
+  align-items: center; 
+  z-index: 200; 
 }  
 
 /* 模态框内容 */  

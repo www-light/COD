@@ -1,5 +1,5 @@
 <template>
-  <div id="footer-div" style="border: 1px solid white;">
+  <div id="footer-div" style="border: 0px solid black;">
   <hr id="hr2"> 
     <footer> 
         <p style="color:grey;">&copy; 2024 小型动物检测网站. 版权所有.</p>  

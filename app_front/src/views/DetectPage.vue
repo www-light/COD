@@ -8,7 +8,7 @@
     <div style="display: flex;">
 
       <div style="border: 1px solid white; width: 430px;">
-        <div><img :src="imgUrl" alt="点击查看大图" @click="showModel[3] = true" style="width: 400px; height: 330px;"></div>
+        <div><img :src="imgUrl" title="点击查看大图" @click="showModel[3] = true" style="width: 400px; height: 330px;"></div>
         <div style="padding-top: 20px; font-size: 120%">
               <button :class="srcButton[3]?'srcdown':'srcup'" @click="clickSrc(3)">src</button>
               <button :class="resButton[3]&&resimgUrl!=''?'resdown':'resup'" @click="clickRes(3)">res</button>
@@ -31,10 +31,12 @@
       </div>
 
       <div style="border: 1px solid white">
+        
+        <div><h3 style="font-weight:bold; margin: 5px;">For example:</h3></div>
 
-        <div style="display: flex;">
+        <div style="display: flex; ">
           <div style="padding:0 30px 10px 0px;" >
-            <img :src="Example[0]" alt="点击查看" style="width: 200px; height: 150px;" @click="showModel[0]=true">
+            <img :src="Example[0]" title="点击查看大图" style="width: 200px; height: 150px;" @click="showModel[0]=true">
           </div>
           <div style="padding-top: 20px; font-size: 120%">
             <div>small-size bird<br>小型鸟类</div>
@@ -50,7 +52,7 @@
 
         <div style="display: flex;">
           <div style="padding:0 30px 10px 0px;">
-            <img :src="Example[1]" alt="点击查看" style="width:200px; height: 150px;" @click="showModel[1]=true"> 
+            <img :src="Example[1]" title="点击查看大图" style="width:200px; height: 150px;" @click="showModel[1]=true"> 
           </div>
           <div style="padding-top: 20px; font-size: 120%">
             <div>spider 山蛛</div>
@@ -66,7 +68,7 @@
 
         <div style="display: flex;">
           <div style="padding:0 30px 10px 0px;">
-            <img :src="Example[2]"  alt="点击查看" style="width:200px; height: 150px;" @click="showModel[2]=true">
+            <img :src="Example[2]"  title="点击查看大图" style="width:200px; height: 150px;" @click="showModel[2]=true">
           </div>
           <div style="padding-top: 20px; font-size: 120%">
             <div>sea turtle 海龟</div>
@@ -105,7 +107,7 @@ export default {
       uploadMessage: '暂未上传',
       // 控制模态框显示与隐藏  
       showModel: [false,false,false,false], 
-      
+      // 控制原图与结果图的按钮
       srcButton:[true,true,true,true],
       resButton:[false,false,false,false],
       Example:['/example1.jpg','/example2.jpg','/example3.jpg'],
@@ -230,5 +232,9 @@ export default {
   background-color: rgb(103, 0, 0);
   color:rgb(255, 255, 255);
   border:0px;
+}
+
+img{
+  box-shadow: 10px 0px 15px 2px rgba(0, 0, 0, 0.5);  
 }
 </style>

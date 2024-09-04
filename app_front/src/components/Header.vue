@@ -24,7 +24,7 @@
   #all{
     position: sticky; 
     top:0px;
-    z-index: 100; 
+    z-index:100;
   }
   
   #nav-div{
