@@ -2,7 +2,5 @@ from backend.models import UserInfo
 from rest_framework import serializers
 
 
-class UserInfoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = UserInfo
-        fields = "__all__"
+class ImageSerializer(serializers.Serializer):#定义一个序列化器
+    image=serializers.ImageField()
