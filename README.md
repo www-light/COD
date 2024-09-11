@@ -31,7 +31,7 @@ cd app_front
 # 安装依赖
 npm install
 # 运行前端（dev）
-npm run serve
+npm run dev
 ...
 ```
 
