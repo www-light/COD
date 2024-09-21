@@ -1,19 +1,16 @@
-<template>  
- 
-  <div class="about">  
-    <!-- 纵向导航栏 -->  
-    <nav class="sidebar-nav">  
-      <ul>  
-        <li @click="setActiveSection('introduction')"><router-link to="/about#introduction" class="nav-link">小体型野生动物<br>概览</router-link></li>  
-        <li @click="setActiveSection('importance')"><router-link to="/about#importance" class="nav-link">生态与人类<br>价值</router-link></li>  
-        <li @click="setActiveSection('protection')"><router-link to="/about#protection" class="nav-link">保护<br>行动与方法</router-link></li>  
-      </ul>  
-    </nav>  
-  
-    <!-- 内容区域 -->  
-    <div class="content" id="contentBox">  
+<template>
+  <div class="about">
+    <!-- 内容区域 -->
+    <div class="content" id="contentBox">
+    
       <!-- 小体型野生动物概览 -->  
       <section v-show="activeSection === 'introduction'" id="introduction" class="section">  
+      <div class="view">
+        <div class="line" style="text-align: center;">
+            <span style="font-size: 24px;">————————————</span>
+            <span style="font-size: 22px;">&nbsp;&nbsp;&nbsp;&nbsp;好奇心起？下滑解锁更多野生动物奥秘！&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span style="font-size: 24px;">————————————</span>
+        </div>
         <h1>Overview of small wild animals</h1>  
         <p class="indented-text">在生物学界，小体型野生动物指的是那些体型相对较小，通常具有独特生态适应性和生存策略的物种。这些动物广泛分布于各种生态系统中，从热带雨林到高山草甸，从淡水湖泊到海洋深处，均可见其踪迹。它们虽然体型不大，但在生物多样性和生态平衡中，乃至人类生活生产中扮演着至关重要的角色。</p>  
         <h3 class="h3-custom">小型哺乳动物</h3>  
@@ -74,174 +71,16 @@
         <img src="/about6.jpg" alt="鸟类" style="width: 320px; height: 220px;margin-right:70px;">
         <p> <span class="highlighted-text">鸟类</span>：其中的小型鸟类<br>具有高效双重呼吸系统和四腔心脏支持高能耗飞行<br>骨骼轻薄中空，胸肌发达，提供飞行动力<br>既是捕食者也是被捕食者，食物多样，对生态平衡和生物多样性至关重要<br>复杂社群行为和繁殖策略，是生态学和环境保护研究的重要指示物种</p>  
       </li> </ul> 
+    </div>
     </section>  
   
     <!-- 生态与人类价值 -->
    
     <section v-show="activeSection === 'importance'" id="importance" class="section">
-      <div class="section1">
-      <h2>小体型野生动物：生态平衡的微动力<br>Small wild animals: The micro driving force for ecological balance.</h2>
-      <div class="box">
-        <div class="box1">
-          <div class="image">
-            <img class="image__img" src="/about26.png" alt="Bricks">
-            <div class="image__overlay">
-              <div class="image__title">Biodiversity</div>
-              <p class="image__description">
-                Ecosystem Stability
-              </p>
-            </div>
-            <div class="image__description-box">
-              <h3>生物多样性与生态系统稳定性</h3>
-              <p>小体型野生动物对维持生物多样性至关重要。它们通过生态关系构建复杂食物网和生态链，数量稳定直接影响生态系统平衡。</p>
-            </div>
-          </div>
-        </div>
-    
-        <div class="box2">
-          <div class="image">
-            <img class="image__img" src="/about29.png" alt="Bricks">
-            <div class="image__overlay">
-              <div class="image__title">Material Cycling</div>
-              <p class="image__description">
-                Energy Flow
-              </p>
-            </div>
-            <div class="image__description-box">
-              <h3>环境指示作用</h3>
-              <p>小体型野生动物对生存环境敏感，常被用作环境质量的指示物种。其种群数量及分布范围的变迁等可反映出生态系统健康状况和环境质量的变化。</p>
-            </div>
-          </div>
-        </div>
-    
-        <div class="box3">
-          <div class="image">
-            <img class="image__img" src="/about28.png" alt="Bricks">
-            <div class="image__overlay">
-              <div class="image__title">Environmental Indicator </div>
-              <p class="image__description">
-                Role
-              </p>
-            </div>
-            <div class="image__description-box">
-              <h3>物质循环与能量流动</h3>
-              <p>小体型野生动物采食植物、排泄粪便，推动生态系统物质循环。同时，它们也是分解者的重要食物来源，加速有机物质分解和营养元素再循环。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section2">
-      <h2>小体型野生动物：人类福祉的灵动贡献<br>Small wild animals: The lively contribution to human well-being.</h2>
-      <div class="box">
-        <div class="box1">
-          <div class="image">
-            <img class="image__img" src="/about27.png" alt="Bricks">
-            <div class="image__overlay">
-              <div class="image__title">Cultural & symbolic</div>
-              <p class="image__description">
-                value
-              </p>
-            </div>
-            <div class="image__description-box">
-              <h3>文化与象征价值</h3>
-              <p>小型野生动物如虎斑蝶，象征美丽与自由，连接多元文化，激发人类对自然的尊重与情感共鸣。</p>
-            </div>
-          </div>
-        </div>
-    
-        <div class="box2">
-          <div class="image">
-            <img class="image__img" src="/about30.png" alt="Bricks">
-            <div class="image__overlay">
-              <div class="image__title">scientific research</div>
-              <p class="image__description">
-                value
-              </p>
-            </div>
-            <div class="image__description-box">
-              <h3>科学研究价值</h3>
-              <p>小体型野生动物独特的生理结构和行为习性为生命科学研究提供重要材料。例如，在生物医学中，可作为实验动物模拟人类疾病，为治疗和药物研发提供依据。</p>
-            </div>
-          </div>
-        </div>
-    
-        <div class="box3">
-          <div class="image">
-            <img class="image__img" src="/about31.jpg" alt="Bricks">
-            <div class="image__overlay">
-              <div class="image__title">ecological service </div>
-              <p class="image__description">
-                function
-              </p>
-            </div>
-            <div class="image__description-box">
-              <h3>生态服务功能</h3>
-              <p>小体型野生动物提供重要生态服务功能。如蝙蝠授粉；猫头鹰控制害虫；松鼠促进种子扩散和植物繁殖。这些对人类生产生活有直接促进作用。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="section3">
-        <h2>小体型野生动物：研究领域的奇妙宝藏<br>Small wild animals: A wonderful treasure in the field of research.</h2>
-        <div class="box">
-          <div class="box1">
-            <div class="image">
-              <img class="image__img" src="/about32.png" alt="Bricks">
-              <div class="image__overlay">
-                <div class="image__title">Protect biodiversity</div>
-                <p class="image__description">
-        
-                </p>
-              </div>
-              <div class="image__description-box">
-                <h3>保护生物多样性</h3>
-                <p>研究与保护小体型野生动物，是有效维护生物多样性的关键。生物多样性作为地球生命系统的核心，对生态平衡与人类福祉至关重要。</p>
-              </div>
-            </div>
-          </div>
-      
-          <div class="box2">
-            <div class="image">
-              <img class="image__img" src="/about33.png" alt="Bricks">
-              <div class="image__overlay">
-                <div class="image__title">Promote ecological </div>
-                <p class="image__description">
-                  research
-                </p>
-              </div>
-              <div class="image__description-box">
-                <h3>促进生态学研究</h3>
-                <p>小体型野生动物作为生态系统重要组成，通过研究可深入了解生态系统结构与功能、物种间相互作用等科学问题，为生态保护与管理提供科学依据。</p>
-              </div>
-            </div>
-          </div>
-      
-          <div class="box3">
-            <div class="image">
-              <img class="image__img" src="/about34.png" alt="Bricks">
-              <div class="image__overlay">
-                <div class="image__title">Improve human quality  </div>
-                <p class="image__description">
-                  of life
-                </p>
-              </div>
-              <div class="image__description-box">
-                <h3>提升人类生活质量</h3>
-                <p>保护小体型野生动物可维护生态平衡与生物多样性，提升人类生活质量，如促进农业生产、激活地方经济、保障人类健康。</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     </section>
 
    
   
-
       
       <!-- 保护行动与方法--> 
       <section v-show="activeSection === 'protection'" id="protection" class="section">
@@ -262,6 +101,61 @@
 
         <!-- 内容部分 -->
         <div class="protection-content">
+
+          <div class="section1">
+            <h2>小体型野生动物：生态平衡的微动力<br>Small wild animals: The micro driving force for ecological balance.</h2>
+            <div class="box">
+              <div class="box1">
+                <div class="image">
+                  <img class="image__img" src="/about26.png" alt="Bricks">
+                  <div class="image__overlay">
+                    <div class="image__title">Biodiversity</div>
+                    <p class="image__description">
+                      Ecosystem Stability
+                    </p>
+                  </div>
+                  <div class="image__description-box">
+                    <h3>生物多样性与生态系统稳定性</h3>
+                    <p>小体型野生动物对维持生物多样性至关重要。它们通过生态关系构建复杂食物网和生态链，数量稳定直接影响生态系统平衡。</p>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="box2">
+                <div class="image">
+                  <img class="image__img" src="/about29.png" alt="Bricks">
+                  <div class="image__overlay">
+                    <div class="image__title">Material Cycling</div>
+                    <p class="image__description">
+                      Energy Flow
+                    </p>
+                  </div>
+                  <div class="image__description-box">
+                    <h3>环境指示作用</h3>
+                    <p>小体型野生动物对生存环境敏感，常被用作环境质量的指示物种。其种群数量及分布范围的变迁等可反映出生态系统健康状况和环境质量的变化。</p>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="box3">
+                <div class="image">
+                  <img class="image__img" src="/about28.png" alt="Bricks">
+                  <div class="image__overlay">
+                    <div class="image__title">Environmental Indicator </div>
+                    <p class="image__description">
+                      Role
+                    </p>
+                  </div>
+                  <div class="image__description-box">
+                    <h3>物质循环与能量流动</h3>
+                    <p>小体型野生动物采食植物、排泄粪便，推动生态系统物质循环。同时，它们也是分解者的重要食物来源，加速有机物质分解和营养元素再循环。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
           <!-- 第一部分 -->
           <div class="section-group">
             <div class="image-group">
@@ -282,6 +176,62 @@
               </ul>
             </div>
           </div>
+
+          <span class="custom-line">——————————————————&nbsp;&nbsp;&nbsp;&nbsp;————————————————————&nbsp;&nbsp;&nbsp;&nbsp;————————————————————</span>
+
+          <div class="section2">
+            <h2>小体型野生动物：人类福祉的灵动贡献<br>Small wild animals: The lively contribution to human well-being.</h2>
+            <div class="box">
+              <div class="box1">
+                <div class="image">
+                  <img class="image__img" src="/about27.png" alt="Bricks">
+                  <div class="image__overlay">
+                    <div class="image__title">Cultural & symbolic</div>
+                    <p class="image__description">
+                      value
+                    </p>
+                  </div>
+                  <div class="image__description-box">
+                    <h3>文化与象征价值</h3>
+                    <p>小型野生动物如虎斑蝶，象征美丽与自由，连接多元文化，激发人类对自然的尊重与情感共鸣。</p>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="box2">
+                <div class="image">
+                  <img class="image__img" src="/about30.png" alt="Bricks">
+                  <div class="image__overlay">
+                    <div class="image__title">scientific research</div>
+                    <p class="image__description">
+                      value
+                    </p>
+                  </div>
+                  <div class="image__description-box">
+                    <h3>科学研究价值</h3>
+                    <p>小体型野生动物独特的生理结构和行为习性为生命科学研究提供重要材料。例如，在生物医学中，可作为实验动物模拟人类疾病，为治疗和药物研发提供依据。</p>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="box3">
+                <div class="image">
+                  <img class="image__img" src="/about31.jpg" alt="Bricks">
+                  <div class="image__overlay">
+                    <div class="image__title">ecological service </div>
+                    <p class="image__description">
+                      function
+                    </p>
+                  </div>
+                  <div class="image__description-box">
+                    <h3>生态服务功能</h3>
+                    <p>小体型野生动物提供重要生态服务功能。如蝙蝠授粉；猫头鹰控制害虫；松鼠促进种子扩散和植物繁殖。这些对人类生产生活有直接促进作用。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
       
           <!-- 第二部分 -->
           <div class="section-group">
@@ -293,7 +243,7 @@
               </div>
             </div>
             <div class="text-group new-text-group">
-              <h2>控制人为威胁</h2>
+              <h2 style="position: relative; top: 15px; ">控制人为威胁</h2>
               <p>Control Human Threats</p>
               <p>针对人为威胁的控制，我们需采取综合手段以减轻对小体型野生动物的负面影响。减少环境污染是首要任务，通过严格的环境监管，限制有害物质的排放，保护它们免受污染之害。同时，强化法律法规建设，严厉打击非法捕猎与贸易活动，从源头上切断非法链条。此外，在自然保护区等敏感区域实施合理的游客管理政策，平衡旅游发展与生态保护，确保野生动物免受不必要的干扰。</p>
               <ul class="keyword-list new-keyword-list">
@@ -303,9 +253,51 @@
               </ul>
             </div>
           </div>
-        </div>
+        
+          <span class="custom-line">——————————————————&nbsp;&nbsp;&nbsp;&nbsp;————————————————————&nbsp;&nbsp;&nbsp;&nbsp;————————————————————</span>
 
+        <div class="section3">
+          <h2>小体型野生动物：研究领域的奇妙宝藏<br>Small wild animals: A wonderful treasure in the field of research.</h2>
+          <div class="box">
+            <div style="display:table-cell;padding-left:150px;"><div class="box1">
+              <div class="image">
+                <img class="image__img" src="/about32.png" alt="Bricks">
+                <div class="image__overlay">
+                  <div class="image__title">Protect biodiversity</div>
+                  <p class="image__description">
+          
+                  </p>
+                </div>
+                <div class="image__description-box">
+                  <h3>保护生物多样性</h3>
+                  <p>研究与保护小体型野生动物，是有效维护生物多样性的关键。生物多样性作为地球生命系统的核心，对生态平衡与人类福祉至关重要。</p>
+                </div>
+              </div>
+              </div>
+            </div>
+        
+            <div style="display:table-cell;padding-right:150px;"><div class="box2">
+              <div class="image">
+                <img class="image__img" src="/about33.png" alt="Bricks">
+                <div class="image__overlay">
+                  <div class="image__title">Promote ecological </div>
+                  <p class="image__description">
+                    research
+                  </p>
+                </div>
+                <div class="image__description-box">
+                  <h3>促进生态学研究</h3>
+                  <p>小体型野生动物作为生态系统重要组成，通过研究可深入了解生态系统结构与功能、物种间相互作用等科学问题，为生态保护与管理提供科学依据。</p>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        
+
+          
         <!-- 第三部分 -->
+<div style="height: 30px;"></div> 
 <div class="section-group">
   <div class="image-group new-image-group-2">
     <img src="/about17.png" alt="New Image 1" style="width: 150px; height: 150px;position: relative; left: 10px; top: 70px;">
@@ -315,9 +307,9 @@
     </div>
   </div>
   <div class="text-group new-text-group-2">
-    <h2>加强监测与研究</h2>
+    <h2 style="position: relative; top: -60px; ">加强监测与研究</h2>
     <p>Strengthen Monitoring and Research</p>
-    <p>监测与研究是科学保护的基础。我们需建立健全小体型野生动物的监测体系，利用现代科技手段如遥感、GIS及大数据分析，精准掌握其种群动态与生态习性。同时，深入开展遗传学研究，揭示其遗传多样性与进化历程，为制定保护策略提供遗传学层面的支持。此外，生态系统研究也不可或缺，通过解析它们在生态系统中的功能与角色，为整体生态保护提供科学依据。</p>
+    <p>监测与研究是科学保护的基础。我们需建立健全小体型野生动物的监测体系，利用现代科技手段如遥感、GIS及大数据分析，精准掌握其种群动态与生态习性。</br>同时，深入开展遗传学研究，揭示其遗传多样性与进化历程，为制定保护策略提供遗传学层面的支持。</br>此外，生态系统研究也不可或缺，通过解析它们在生态系统中的功能与角色，为整体生态保护提供科学依据。</p>
     <ul class="keyword-list new-keyword-list-2">
       <li><span class="green-dot">&#8226;</span>种群监测</li>
       <li><span class="green-dot">&#8226;</span>遗传学研究</li>
@@ -325,51 +317,11 @@
     </ul>
   </div>
 </div>
-
-<!-- 第四部分 -->
-<div class="section-group">
-  <div class="image-group new-image-group-3">
-    <img src="/about20.jpg" alt="New Image 1" style="width: 150px; height: 150px;position: relative; left: 10px; top: 70px;">
-    <div class="right-images new-right-images-3">
-      <img src="/about21.jpg" alt="New Image 2" style="width: 180px; height: 95px;position: relative; left: 20px; top: 100px;">
-      <img src="/about22.jpg" alt="New Image 3" style="width: 180px; height: 95px;position: relative; left: 20px; top: -103px;">
-    </div>
-  </div>
-  <div class="text-group new-text-group-3">
-    <h2>促进公众参与与教育</h2>
-    <p>Promote Public Participation and Education</p>
-    <p>公众参与与教育是推动保护工作的关键力量。我们需广泛传播保护理念，利用多种渠道提升公众对小体型野生动物保护的认识与重视。通过举办教育活动、开展科普宣传及建立互动平台，激发公众的保护热情与参与度。同时，鼓励社会各界积极参与保护行动，形成政府主导、社会参与的良好氛围。</p>
-    <ul class="keyword-list new-keyword-list-3">
-      <li><span class="green-dot">&#8226;</span>提高公众意识</li>
-      <li><span class="green-dot">&#8226;</span>开展教育活动</li>
-      <li><span class="green-dot">&#8226;</span>鼓励公众参与</li>
-    </ul>
-  </div>
 </div>
-
-<!-- 第五部分 -->
-<div class="section-group">
-  <div class="image-group new-image-group-4">
-    <img src="/about23.jpg" alt="New Image 1" style="width: 150px; height: 150px;position: relative; left: 10px; top: 70px;">
-    <div class="right-images new-right-images-4">
-      <img src="/about24.png" alt="New Image 2" style="width: 180px; height: 95px;position: relative; left: 20px; top: 100px;">
-      <img src="/about25.png" alt="New Image 3" style="width: 180px; height: 95px;position: relative; left: 20px; top: -103px;">
-    </div>
-  </div>
-  <div class="text-group new-text-group-4">
-    <h2>加强国际合作</h2>
-    <p>Strengthen International Cooperation</p>
-    <p>科技创新可以为小体型野生动物的保护提供新的手段和方法。利用先进的监测技术，实时掌握小体型野生动物的分布和数量变化。开发新型的保护设备和工具，提高保护效率。同时，运用大数据和人工智能技术，分析小体型野生动物的生存环境和行为模式，为制定科学的保护策略提供依据。此外，鼓励科研机构和企业加大在小体型野生动物保护方面的研发投入，推动科技创新与保护实践的结合。</p>
-    <ul class="keyword-list new-keyword-list-4">
-      <li><span class="green-dot">&#8226;</span>信息共享</li>
-      <li><span class="green-dot">&#8226;</span>技术支持</li>
-      <li><span class="green-dot">&#8226;</span>联合执法</li>
-    </ul>
-  </div>
 </div>
-    
-    
       </section>
+
+      
     </div>  
   </div>
 </template>  
@@ -382,6 +334,7 @@ export default {
   name: 'AboutPage',
   data() {
     return {
+      isDropdownVisible: false,
       activeSection: 'protection',
       images: ['./about7.jpg', './about8.jpg', './about9.jpg', './about10.jpg'],
       currentImage: '',
@@ -391,28 +344,44 @@ export default {
   },
   created() {
     this.currentImage = this.images[this.currentIndex];
+    if (this.$route.hash) {
+      this.activeSection = this.$route.hash.slice(1);
+    }
   },
   beforeDestroy() {
     if (this.intervalId) {
       clearInterval(this.intervalId);
     }
-    window.removeEventListener('scroll', this.handleScroll);
+    if (this.handleScroll) {
+      window.removeEventListener('scroll', this.handleScroll);
+    }
   },
   methods: {
+    toggleDropdown() {
+      this.isDropdownVisible =!this.isDropdownVisible;
+    },
+    goToSection(section) {
+      this.$router.push({ path: '/about', hash: section });
+      this.setActiveSection(section);
+    },
     setActiveSection(section) {
-    this.activeSection = section;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    if (section === 'protection' &&!this.intervalId) {
-        this.startCarousel();
-    }
-},
+      if (this.activeSection === section) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        this.activeSection = section;
+        if (section === 'protection' &&!this.intervalId) {
+          this.startCarousel();
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    },
     nextImage() {
       this.currentIndex = (this.currentIndex + 1) % this.images.length;
       this.currentImage = this.images[this.currentIndex];
       console.log('切换到下一张图片：', this.currentImage);
     },
     startCarousel() {
-      this.intervalId = setInterval(this.nextImage, 3000);
+      this.intervalId = setInterval(this.nextImage, 2000);
       console.log('启动轮播图定时器');
     },
     handleScroll() {
@@ -424,23 +393,26 @@ export default {
       } else {
         contentElement.style.marginTop = '0';
       }
-      const footerTop = document.querySelector('footer').getBoundingClientRect().top;
-      const sidebarNav = document.querySelector('.sidebar-nav');
-      if (sidebarNav.getBoundingClientRect().bottom > footerTop) {
-        sidebarNav.classList.add('limit-to-footer');
-      } else {
-        sidebarNav.classList.remove('limit-to-footer');
-      }
     }
   },
   mounted() {
     console.log('添加滚动事件监听器');
+    this.handleScroll = this.handleScroll.bind(this);
     window.addEventListener('scroll', this.handleScroll);
+    if (this.activeSection === 'protection' &&!this.intervalId) {
+      this.startCarousel();
+    }
+  },
+  watch: {
+    '$route'(to) {
+      if (to.hash) {
+        const section = to.hash.slice(1);
+        this.setActiveSection(section);
+      }
+    }
   }
 };
 </script>
-  
-
 
 
 
@@ -452,70 +424,22 @@ export default {
   
 } 
   
-.sidebar-nav {  
-  width: 150px;  
-  background-color: #34463a; 
-  padding: 10px;  
-  color: white; 
-  min-width: 150px;
-  position: fixed; 
-  top: 135px; 
-  left: 20px;
-  height:570px;
-  /* height: 496.4px;  */
-  transition: top 0.3s ease;
-  
-}  
-
-.sidebar-nav.limit-to-footer {
-  top: calc(100vh - 570px);
-}
-
-.sidebar-nav ul {  
-  list-style-type: none;  
-  padding: 0;  
-}  
-  
-.sidebar-nav li {  
-  margin-bottom: 10px; 
-}  
-
-
-  
-.nav-link {  
-  display: block;  
-  text-decoration: none;  
-  color: white; 
-  padding: 5px; 
-  font-size: 15px; 
-  letter-spacing: 1.5px; 
-  line-height: 1.5; 
-}  
-  
-.nav-link.router-link-exact-active,  
-.nav-link:hover {  
-  background-color: rgb(120, 164, 120); 
-  color: rgb(249, 248, 248); 
-}  
-
-
   
 .content {  
   flex-grow: 1;  
-  padding-left: 200px;  
- 
 }  
-
-
-  
-.section:target {  
-  border-left: 5px solid green;  
-  padding-left: 15px; 
-}  
-
 
 
  /* 1 */
+ .view {
+    margin-top: 550px;
+}
+
+.line{
+ position: relative;
+  top: -40px;
+}
+
 .indented-text {  
   text-indent: 2em; 
   text-align: justify; 
@@ -572,7 +496,6 @@ export default {
 .reversed-layout li {  
   flex-direction: row-reverse;  
   justify-content: flex-end; 
-  
   padding-bottom: 40px; 
    
 } 
@@ -622,23 +545,38 @@ export default {
   letter-spacing: 0.1em;  
   margin: 0; 
   margin-top: 40px; 
-  margin-bottom: 20px; 
-  
+  margin-bottom: 20px;
   }  
   
 
 
    /* 2 */
-   #importance h2 {
+  
+
+   #protection {
+    position: relative;
+    overflow: hidden; 
+    width: 100%; 
+    max-width: 100vw; 
+   
+  }
+  
+  .section1 h2,.section2 h2,.section3 h2 {
     letter-spacing: 3px;
     line-height: 1.8;
     font-size: 20px;
     color: #3a453c;
-    margin-bottom: -50px; 
-    margin-top: 30px; 
-  }
+    margin-bottom: -70px; 
+    margin-top: 70px; 
+}
 
+.custom-line {  
+  display: inline-block; 
+  margin-top: 30px; 
   
+}
+
+
 .image {
   position: relative;
   width: 40%;
@@ -680,15 +618,19 @@ export default {
   margin-top: -25px;
 }
 
+
+
+
 #box {
   width: 1000px;
   height: 400px;
-  margin: 5px auto; 
+  margin: 5px  auto; 
   display: flex; 
   justify-content: space-around;
   align-items: center;
   gap: 0.5px; 
- 
+
+
 }
 
 #box1, #box2, #box3 {
@@ -713,8 +655,6 @@ export default {
   padding: 20px;
   left: 7px;
   box-sizing: border-box; 
-
-
   text-align: justify; 
   font-size: 10px; 
   letter-spacing: 2px; 
@@ -726,7 +666,6 @@ export default {
   color: #333; 
   margin-bottom: 30px; 
 }
-
 
 
 .box {
@@ -755,13 +694,14 @@ export default {
 
 
 
-
-
    /* 3 */
-   #protection {
-    position: relative;
-    overflow: hidden; 
-  }
+.protection-content {
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  padding: 0 20px; 
+ 
+}
   
 
 .carousel-container {  
@@ -786,6 +726,7 @@ export default {
   padding: 60px;
   color: white;
   text-align: left;
+  overflow: hidden; 
 }
 
 .carousel-text h2 {
@@ -831,7 +772,8 @@ export default {
 
 .section-group {
   display: flex;
-
+  margin-left: 110px;
+  margin-top: -90px;
 }
 
 
