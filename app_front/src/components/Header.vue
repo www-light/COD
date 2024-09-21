@@ -1,23 +1,31 @@
-<template>
-  <div id="all">
-    <div id="nav-div">
-      <div id="img-div">
-          <img src="../assets/logo1.png" alt="logo" style="width: 90px;">
-      </div>
+<template>  
+  <div id="all">  
+    <div id="nav-div">  
+      <div id="img-div">  
+        <img src="../assets/logo1.png" alt="logo" style="width: 90px;">  
+      </div>  
   
-      <div id="text-div">
-        <nav>
-          <router-link to='/'>Home</router-link>&nbsp;&nbsp;|&nbsp;&nbsp; 
-          <router-link to="/about">About</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;  
-          <router-link to="/detect">Detect</router-link>
-        </nav>
-      </div>
-  
-    </div>
-      <hr> 
-  
-  </div>
-  </template>
+      <div id="text-div">  
+        <nav>  
+          <router-link to='/'>Home</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;  
+          <div class="dropdown">  
+            <router-link to="/about" class="dropbtn">About</router-link>  
+            <div class="dropdown-content">  
+              <router-link to="/about#introduction" class="dropdown-link">小型野生动物科普</router-link>  
+              <router-link to="/about#protection" class="dropdown-link">生态智慧 & 保护实践</router-link>  
+            </div>  
+          </div>  
+          &nbsp;&nbsp;|&nbsp;&nbsp;  
+          <router-link to="/detect">Detect</router-link>  
+        </nav>  
+      </div>  
+    </div>  
+    <hr>  
+  </div>  
+</template>
+
+
+
   
   <style scoped>
   
@@ -28,7 +36,6 @@
   }
   
   #nav-div{
-    /*  border: 1px solid black;   颜色调至black用于查看盒子位置 */
        background-color: #f7f6f4; 
       text-align: left;
       display: flex ; 
@@ -39,14 +46,14 @@
     box-sizing: border-box;
     width: 40%;
     padding-left: 25%;
-    border: 0px solid black;   /*颜色调至black用于查看盒子位置 */
+    border: 0px solid black;   
   }
   
   #text-div{
     box-sizing:border-box;
     width: 20%;
     text-align: center;
-    border: 0px solid black;   /*颜色调至black用于查看盒子位置 */
+    border: 0px solid black;  
   }
   
   nav {
@@ -69,5 +76,50 @@
     background-color: #42b983;
   
   }
-  
+
+  .dropdown {  
+    position: relative;  
+    display: inline-block;  
+  }  
+    
+  .dropdown-content {  
+    display: none;  
+    position: absolute;  
+    background-color: #f9f9f9;  
+    min-width: 180px;  
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);  
+    z-index: 1;  
+    text-align: left;  
+  }  
+    
+  .dropdown-content .dropdown-link {  
+    color: black;  
+    padding: 12px 16px;  
+    text-decoration: none;  
+    display: block;  
+    cursor: pointer;  
+    font-size: 14px;  
+    font-weight: bold; 
+  }  
+    
+  .dropdown:hover .dropdown-content {  
+    display: block;  
+  }  
+    
+  .dropbtn {  
+    font-size: 120%;  
+    font-weight: bold;  
+    color: #2c3e50;  
+  }  
+    
+  .dropbtn:hover {  
+    color: #42b983;  
+  }  
+    
+  /* 悬停 */  
+  .dropdown-content .dropdown-link:hover {  
+    background-color: #f1f1f1;  
+    color: rgb(5, 156, 5); 
+  }  
   </style>
+  
