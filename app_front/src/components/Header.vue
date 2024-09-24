@@ -10,9 +10,9 @@
           <router-link to='/'>Home</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;  
           <div class="dropdown">  
             <router-link to="/about" class="dropbtn">About</router-link>  
-            <div class="dropdown-content">  
-              <router-link to="/about#introduction" class="dropdown-link">小型野生动物科普</router-link>  
-              <router-link to="/about#protection" class="dropdown-link">生态智慧 & 保护实践</router-link>  
+            <div class="dropdown-content"> 
+              <router-link to="/about#protection" class="dropdown-link">生态智慧 & 保护实践</router-link> 
+              <router-link to="/about#introduction" class="dropdown-link">小型野生动物科普</router-link>                  
             </div>  
           </div>  
           &nbsp;&nbsp;|&nbsp;&nbsp;  
@@ -93,7 +93,7 @@
   }  
     
   .dropdown-content .dropdown-link {  
-    color: black;  
+    color: #2c3e50;  
     padding: 12px 16px;  
     text-decoration: none;  
     display: block;  
@@ -119,7 +119,7 @@
   /* 悬停 */  
   .dropdown-content .dropdown-link:hover {  
     background-color: #f1f1f1;  
-    color: rgb(5, 156, 5); 
+    color: #42b983; 
   }  
   </style>
   

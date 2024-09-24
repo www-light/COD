@@ -5,6 +5,9 @@
     
       <!-- 小体型野生动物概览 -->  
       <section v-show="activeSection === 'introduction'" id="introduction" class="section">  
+
+      <Game/>
+
       <div class="view">
         <div class="line" style="text-align: center;">
             <span style="font-size: 24px;">————————————</span>
@@ -330,6 +333,7 @@
 
   
 <script>
+import Game from '../components/Game.vue';
 export default {
   name: 'AboutPage',
   data() {
@@ -410,6 +414,9 @@ export default {
         this.setActiveSection(section);
       }
     }
+  },
+  components:{
+      Game,
   }
 };
 </script>
@@ -432,7 +439,7 @@ export default {
 
  /* 1 */
  .view {
-    margin-top: 550px;
+    margin-top: 100px;
 }
 
 .line{
