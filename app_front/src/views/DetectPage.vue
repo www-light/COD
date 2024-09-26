@@ -94,7 +94,6 @@
 import axios from 'axios';  
 // 导入模态框组件
 import ShowModal from '../components/ShowModel.vue'
-import ShowModel from '../components/ShowModel.vue';
   
 export default {  
   name: 'UploadPhoto',  
