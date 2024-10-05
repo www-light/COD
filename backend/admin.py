@@ -1,15 +1,5 @@
 from django.contrib import admin
-
+from backend import models
 # Register your models here.
-from backend.models import UserInfo
+admin.site.register(models.Problems)
 
-admin.site.site_header = '任务管理系统'
-
-
-class UserInfoAdmin(admin.ModelAdmin):
-    list_display = ('id', 'username', 'password',)
-    list_display_links = ('username',)
-    list_per_page = 50
-
-
-admin.site.register(UserInfo, UserInfoAdmin)

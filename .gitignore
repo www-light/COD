@@ -1,13 +1,13 @@
 .DS_Store
 node_modules
 /dist
-
+*.pth
 # local env files
 .env.local
 .env.*.local
 /venv
-/backend/__pycache__
-
+# 忽略 Python 编译的文件
+**/__pycache__/
 # Log files
 npm-debug.log*
 yarn-debug.log*

@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -43,16 +43,6 @@ INSTALLED_APPS = [
     'drf_yasg', 
     "corsheaders",
 ]
-# REST_FRAMEWORK增加全局过滤配置  
-REST_FRAMEWORK = {  
-    'DEFAULT_FILTER_BACKENDS': [  
-        'django_filters.rest_framework.DjangoFilterBackend',
-        'rest_framework.filters.SearchFilter',   
-    ],
- # 设置分页  
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',  
-    'PAGE_SIZE': 5,
-}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -95,7 +85,7 @@ WSGI_APPLICATION = "COD_app.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "d.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
         "USER":"root",
         "PASSWORD":"123456",
         "HOST":"localhost",
@@ -145,3 +135,16 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+REST_FRAMEWORK = {  
+    'DEFAULT_FILTER_BACKENDS': [  
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',   
+    ],
+ # 设置分页  
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',  
+    'PAGE_SIZE': 5,
+}
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
