@@ -50,4 +50,7 @@ class upload_images(APIView):
             return JsonResponse(response_data)
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=500)
+
+    
+    
         

@@ -8,6 +8,8 @@ node_modules
 /venv
 # 忽略 Python 编译的文件
 **/__pycache__/
+#忽略生成图片
+/SINet/res/SINet_V2/OUTPUT
 # Log files
 npm-debug.log*
 yarn-debug.log*
