@@ -3,7 +3,9 @@
     <div class="bigdiv">
       <div class="bigtext">
         <h1>Small-size animals<br>Protection<br>Website</h1>
-        <div class="school"><p>Beijing Forestry University</p></div>
+        <router-link to="/detect" style="text-decoration: none; color: aliceblue;" class="bigrouter">
+          <div class="school"><p>Let's try to detect !</p></div>
+        </router-link>
       </div>
     </div>
 
@@ -65,10 +67,15 @@
     padding-top: 100px;
     padding-left: 300px;
   }
+  .bigrouter :hover{
+    background-color: rgb(0, 65, 0);
+    border-radius: 30px;
+    /* color:rgb(183, 183, 183); */
+  }
   .school{
     text-align: center;
     background-color: rgb(0, 100, 0);
-    width: 300px;
+    width: 250px;
     border: 3px solid white;
     border-radius: 30px;
     font-size: 75%;
