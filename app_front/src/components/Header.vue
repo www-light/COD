@@ -7,7 +7,7 @@
   
       <div id="text-div">  
         <nav>  
-          <router-link to='/'>Home</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;  
+          <router-link to='/' class="dropbtn">Home</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;  
           <div class="dropdown">  
             <router-link to="/about" class="dropbtn">About</router-link>  
             <div class="dropdown-content"> 
@@ -16,7 +16,7 @@
             </div>  
           </div>  
           &nbsp;&nbsp;|&nbsp;&nbsp;  
-          <router-link to="/detect">Detect</router-link>  
+          <router-link to="/detect" class="dropbtn">Detect</router-link>  
         </nav>  
       </div>  
     </div>  
