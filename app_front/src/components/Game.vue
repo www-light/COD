@@ -89,11 +89,14 @@ export default {
             try {  
                 const response = await axios.get('http://localhost:8000/api/random_animal');  
                 this.animal = response.data;
+                //解码base64图片
                 this.animal.animals_skeletion_image = `data:image/jpeg;base64,${response.data.animals_skeletion_image}`;
+                this.animal.animals_origin_image = `data:image/jpeg;base64,${response.data.animals_origin_image}`;
             } catch (error) {  
                 console.error('Error fetching random animal:', error);  
                 // 可以在这里处理错误，例如显示一个错误消息  
             } 
+            //清空input
             this.user_input = ''; 
         } , 
         // 更换动物对象
