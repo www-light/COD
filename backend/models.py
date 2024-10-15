@@ -9,3 +9,14 @@ class Problems(models.Model):
     animals_name = models.CharField(max_length=100,default="Unnamed")
     animals_origin_image=models.ImageField(upload_to='problems/origin',blank=True,null=True)
     animals_skeleton_image=models.ImageField(upload_to='problems/skeleton',blank=True,null=True)
+
+
+from django.db import models
+
+class Animal(models.Model):
+    name = models.CharField(max_length=100)
+    image_name = models.CharField(max_length=200)
+
+class AnimalGuess(models.Model):
+    user_input = models.CharField(max_length=100)
+    is_correct = models.BooleanField()

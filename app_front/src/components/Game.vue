@@ -74,10 +74,7 @@ export default {
                 animals_origin_image: '',
                 animals_skeletion_image: 'example3r.jpg',
                 animals_skeleton_image_url:  '',
-            },
-            answerAnimalImage: '', 
-             answerInfoText: '',
-             animalName: ''
+            }, 
         };  
     }, 
     created(){
@@ -95,7 +92,7 @@ export default {
                         headers: {  'Content-Type': 'multipart/form-data'  }
                     }
                 );
-            
+        
                 // 处理后端返回的结果  
                 if (response.data.result) {  
                     alert('恭喜你，回答正确！');  
@@ -103,7 +100,7 @@ export default {
                     alert('抱歉，回答错误。');  
                 }
             } catch (error) {  
-            console.error('发送请求时出错:', error);  
+                console.error('发送请求时出错:', error);  
             } 
             this.seeAnswer() 
         } ,
@@ -112,11 +109,9 @@ export default {
             try {  
                 const response = await axios.get('http://localhost:8000/api/random_animal');  
                 this.animal = response.data;
-                //解码base64图片,及结果界面调用信息
+                //解码base64图片
                 this.animal.animals_skeletion_image = `data:image/jpeg;base64,${response.data.animals_skeletion_image}`;
                 this.animal.animals_origin_image = `data:image/jpeg;base64,${response.data.animals_origin_image}`;
-                this.answerInfoText = this.animal.animals_info;
-                this.animalName = this.animal.animals_name;
             } catch (error) {  
                 console.error('Error fetching random animal:', error);  
                 // 可以在这里处理错误，例如显示一个错误消息  
@@ -135,9 +130,8 @@ export default {
         },
         // 跳转答案页面
         seeAnswer() {
-    this.activeSection = 'answer';
-    this.answerAnimalImage = this.animal.animals_origin_image;
-},
+            this.activeSection = 'answer';
+        },
     }         
 }
 </script>
@@ -151,6 +145,7 @@ export default {
     /* border:1px solid black; */
     padding: 0px 225px;
     
+    padding: 0px 225px;
 }
 
 .part1 {
@@ -161,7 +156,7 @@ export default {
 .animal-image {  
   width: 350px;  
   height: auto;
-  height: 250px;  
+  height: 250px;    
   margin-top: 20%; 
   border:5px solid aliceblue; 
   border-radius: 5px;
