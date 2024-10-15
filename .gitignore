@@ -10,6 +10,7 @@ node_modules
 **/__pycache__/
 #忽略生成图片
 /SINet/res/SINet_V2/OUTPUT
+/backend/migrations/__pycache__
 # Log files
 npm-debug.log*
 yarn-debug.log*
