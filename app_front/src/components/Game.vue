@@ -1,6 +1,6 @@
 <template>
     <!-- 问题页面 -->
-    <section v-show="activeSection === 'question'" id="question" class="game">
+    <section v-show="activeSection === 'question'" id="question" class="game" style="display: flex;">
         <div class="part1">
             <img :src=animal.animals_skeletion_image alt="Animal" class="animal-image">
             <div style="padding-top: 45px;" >
@@ -31,26 +31,31 @@
 
     <!-- 结果页面 -->
     <section v-show="activeSection === 'answer'" id="answer" class="game">
-        <button @click="backQestion" style="height: 30px;width: 100px;">回到上层</button>
-        <img :src="answerAnimalImage" alt="Animal in Answer Page" class="animal-image-answer" />
-    
-        <div class="parent-container">
-            <div class="name-container">
-                <h2>My name is</h2>
-                <div style="font-size: 30px; font-weight: bold;" class="parentDiv">
-                    <p>{{ animalName }}  !</p>
+        <div style="display: flex;">
+            <div style="padding-top: 8%; padding-left: 20px;">
+                <img :src="answerAnimalImage" alt="Animal in Answer Page" class="animal-image-answer" />
+                <div style="padding-top: 30px;" >
+                    <button @click="backQestion" class="submit-button">下一题 ☛</button>
                 </div>
             </div>
-            <div class="answer-info-box">
-                <h3>答案 ❕</h3>
-            </div>
-            <div class="answer-info-text">
-                <p>{{ answerInfoText }}</p>
+
+            <div class="parent-container">
+                <div class="name-container">
+                    <h2>My name is</h2>
+                    <div style="font-size: 30px; font-weight: bold;" class="parentDiv">
+                        <p>{{ animalName }}  !</p>
+                    </div>
+                </div>
+                <div class="answer-info-box">
+                    <h3>答案 ❕</h3>
+                </div>
+                <div class="answer-info-text">
+                    <p>{{ answerInfoText }}</p>
+                </div>
             </div>
         </div>
-        
         <p class="thank-you-message">Thank you for experiencing this game🎉. <br>Hope you have gained fun and knowledge in the wonderful world of animals.</p>
-          
+    
     </section>
     
 
@@ -74,7 +79,10 @@ export default {
                 animals_origin_image: '',
                 animals_skeletion_image: 'example3r.jpg',
                 animals_skeleton_image_url:  '',
-            }, 
+            },
+            answerAnimalImage: '', 
+             answerInfoText: '',
+             animalName: ''
         };  
     }, 
     created(){
@@ -92,7 +100,7 @@ export default {
                         headers: {  'Content-Type': 'multipart/form-data'  }
                     }
                 );
-        
+            
                 // 处理后端返回的结果  
                 if (response.data.result) {  
                     alert('恭喜你，回答正确！');  
@@ -100,7 +108,7 @@ export default {
                     alert('抱歉，回答错误。');  
                 }
             } catch (error) {  
-                console.error('发送请求时出错:', error);  
+            console.error('发送请求时出错:', error);  
             } 
             this.seeAnswer() 
         } ,
@@ -109,9 +117,11 @@ export default {
             try {  
                 const response = await axios.get('http://localhost:8000/api/random_animal');  
                 this.animal = response.data;
-                //解码base64图片
+                //解码base64图片,及结果界面调用信息
                 this.animal.animals_skeletion_image = `data:image/jpeg;base64,${response.data.animals_skeletion_image}`;
                 this.animal.animals_origin_image = `data:image/jpeg;base64,${response.data.animals_origin_image}`;
+                this.answerInfoText = this.animal.animals_info;
+                this.animalName = this.animal.animals_name;
             } catch (error) {  
                 console.error('Error fetching random animal:', error);  
                 // 可以在这里处理错误，例如显示一个错误消息  
@@ -130,8 +140,9 @@ export default {
         },
         // 跳转答案页面
         seeAnswer() {
-            this.activeSection = 'answer';
-        },
+    this.activeSection = 'answer';
+    this.answerAnimalImage = this.animal.animals_origin_image;
+},
     }         
 }
 </script>
@@ -139,13 +150,12 @@ export default {
 <style scoped>
 
 .game{
-    display: flex;
+    /* display: flex; */
     box-sizing: border-box;
     height: 500px;
     /* border:1px solid black; */
     padding: 0px 225px;
     
-    padding: 0px 225px;
 }
 
 .part1 {
@@ -156,7 +166,7 @@ export default {
 .animal-image {  
   width: 350px;  
   height: auto;
-  height: 250px;    
+  height: 250px;  
   margin-top: 20%; 
   border:5px solid aliceblue; 
   border-radius: 5px;
@@ -188,7 +198,7 @@ export default {
   box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.5);
 }  
 .submit-button {  
-  padding: 10px 20px;  
+  padding: 10px 20px; 
   font-size: 16px;  
   cursor: pointer;
   border-radius: 5px;
@@ -247,8 +257,7 @@ export default {
 .animal-image-answer {  
     width: 350px;
     height: 250px;
-    margin-top: 8%;
-    margin-left: -80px;
+    
     border: 5px solid aliceblue;
     border-radius: 5px;
     box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.6);
@@ -258,7 +267,7 @@ export default {
 
 .parent-container {
     position: relative;
-    
+    margin-left: -8px;
 }
 
 h2 {
@@ -320,11 +329,11 @@ h2 {
     line-height: 1.8;
     text-align: center; 
     width: 90%;
-    position: absolute;
-    bottom: 28%;
+    /* position: absolute; */
+    /* bottom: 0%; */
     left: 20px;
-    transform: translateY(72%);
-    padding: 20px;
+    /* transform: translateY(72%); */
+    padding: 10px 20px 20px 20px;
     white-space: nowrap;
 }
 
