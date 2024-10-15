@@ -2,9 +2,9 @@
     <!-- 问题页面 -->
     <section v-show="activeSection === 'question'" id="question" class="game">
         <div class="part1">
-            <img src="\logo2.png" alt="Animal" class="animal-image">
-            <div style="padding-top: 80px;" >
-                <button @click="alternateImage" class="submit-button">换道题 ⇵</button>
+            <img :src=animal.animals_skeletion_image alt="Animal" class="animal-image">
+            <div style="padding-top: 45px;" >
+                <button @click="alternateAnimal" class="submit-button">换道题 ⇵</button>
                 <button @click="seeAnswer" class="submit-button" style="margin-left:30px;">看答案 ☛</button>
             </div>
         </div>
@@ -12,14 +12,14 @@
             <div class="buttom">
                 <div class="buttom-1">
                     <h3 style="margin:0px; font-size: 130%;">请写下您的答案：</h3> 
-                    <input type="text" v-model="guess" placeholder="input your anwser..." class="guess-input">  
-                    <button @click="checkGuess" class="submit-button">Submit</button>
+                    <input type="text" v-model="user_input" placeholder="input your anwser..." class="guess-input">  
+                    <button @click="submitInput" class="submit-button">Submit</button>
                 </div>
                 <div class="buttom-2">
                     <div class="prompt-1"><h3>提示💡</h3></div>
                     <div class="prompt-2">
-                        <p>Think harder! It has four legs and a tail.</p>
-                        <p style="margin-top: 0px;">注意: 请输入例如dog, cat等简单动物名即可</p>
+                        <p>{{ animal.problem_info }}</p>
+                        <p style="margin-top: 0px;">注意: 请输入例如猕猴, 猫头鹰环蝶等简单动物名即可</p>
                     </div>
                 </div>
             </div>
@@ -37,33 +37,81 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     data() {  
         return {  
-        guess: '',  
-        activeSection:'question',  
-        hint: 'Think harder! It has four legs and a tail.',  
-        correctAnswer: 'Dog' // 假设正确答案是Dog  
+            // 用户输入
+            user_input: '',  
+            activeSection:'question',
+            // 动物对象   
+            animal: {
+                problem_number:'',
+                problem_info: '暂未开始游戏，请打开后端服务器',
+                animals_info: '',
+                animals_name: '',
+                animals_origin_image: '',
+                animals_skeletion_image: 'example3r.jpg',
+                animals_skeleton_image_url:  '',
+            }, 
         };  
-    },  
-    methods: {  
-        checkGuess() {  
-            if (this.guess.toLowerCase() === this.correctAnswer.toLowerCase()) {  
-                alert('恭喜你，回答正确！');     
-            } else {  
-                alert('抱歉，回答错误。');    
+    }, 
+    created(){
+        this.getRandomAnimal();
+    },
+    methods: { 
+        // 提交用户答案
+        async submitInput() {
+            try {
+                const formData = new FormData();
+                formData.append('user_input', this.user_input);
+                formData.append('image_name',this.animal.animals_skeleton_image_url);
+                const response = await axios.post('http://localhost:8000/api/check_animal_name/',formData,
+                    {
+                        headers: {  'Content-Type': 'multipart/form-data'  }
+                    }
+                );
+        
+                // 处理后端返回的结果  
+                if (response.data.result) {  
+                    alert('恭喜你，回答正确！');  
+                } else {  
+                    alert('抱歉，回答错误。');  
+                }
+            } catch (error) {  
+                console.error('发送请求时出错:', error);  
             } 
-            this.activeSection = 'answer'; 
-        },
-        alternateImage() {
-            
+            this.seeAnswer() 
+        } ,
+        // 请求动物对象
+        async getRandomAnimal() {  
+            try {  
+                const response = await axios.get('http://localhost:8000/api/random_animal');  
+                this.animal = response.data;
+                //解码base64图片
+                this.animal.animals_skeletion_image = `data:image/jpeg;base64,${response.data.animals_skeletion_image}`;
+                this.animal.animals_origin_image = `data:image/jpeg;base64,${response.data.animals_origin_image}`;
+            } catch (error) {  
+                console.error('Error fetching random animal:', error);  
+                // 可以在这里处理错误，例如显示一个错误消息  
+            } 
+            //清空input
+            this.user_input = ''; 
+        } , 
+        // 更换动物对象
+        alternateAnimal() {
+            this.getRandomAnimal();
         }, 
+        // 回到问题页面
         backQestion() {
             this.activeSection = 'question';
+            this.getRandomAnimal();
         },
+        // 跳转答案页面
         seeAnswer() {
             this.activeSection = 'answer';
-        }
+        },
     }         
 }
 </script>
@@ -74,7 +122,7 @@ export default {
     box-sizing: border-box;
     height: 500px;
     /* border:1px solid black; */
-    padding: 0px 250px;
+    padding: 0px 225px;
 }
 
 .part1 {
@@ -83,10 +131,11 @@ export default {
 }
 
 .animal-image {  
-  width: 300px;  
-  height: auto;  
+  width: 350px;  
+  height: auto;
+  height: 250px;    
   margin-top: 20%; 
-  border:10px solid aliceblue; 
+  border:5px solid aliceblue; 
   border-radius: 5px;
   box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.6);
 }
@@ -112,7 +161,7 @@ export default {
   padding: 10px;  
   font-size: 16px;  
   border-radius: 5px;
-  border:1px solid aliceblue;
+  border:1px solid grey;
   box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.5);
 }  
 .submit-button {  
@@ -149,6 +198,7 @@ export default {
     align-items: center;
     justify-content: center;
     /* height: 100px; */
+    width: 400px;
     padding: 0px 20px;
     border: 3px solid #42b983;
 }
