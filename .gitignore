@@ -6,6 +6,8 @@ node_modules
 .env.local
 .env.*.local
 /venv
+#忽略生成图片
+/SINet/res/SINet_V2/OUTPUT
 # 忽略 Python 编译的文件
 **/__pycache__/
 # Log files
