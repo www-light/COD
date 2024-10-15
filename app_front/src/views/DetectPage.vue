@@ -1,7 +1,7 @@
 <template>  
   <div id="all">
 
-    <div style="display: flex; padding:10px 0;">
+    <div style="display: flex; padding:10px 0px;">
       <div style="font-size: 110%;"><h1>Begin to detect aninmals` images</h1></div>
     </div>
 
@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <div style="border: 1px solid white">
+      <div style="border: 1px solid white; margin-left: 10px;">
         
         <div><h3 style="font-weight:bold; margin: 5px;">For example:</h3></div>
 
@@ -188,8 +188,8 @@ export default {
 /* 盒子样式 */
 #all {  
   text-align: left; 
-  padding:20px 325px;
-  border: 1xp solid white;   
+  padding:20px 295px 20px 375px;
+  border: 1xp solid black;    
 } 
 
 /* 图片样式 */
